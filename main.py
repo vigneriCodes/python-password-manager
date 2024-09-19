@@ -6,7 +6,6 @@ import json
 
 FONT_NAME = "Verdana"
 FONT_SIZE = 10
-# ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 
 def generate_password():
@@ -27,9 +26,6 @@ def generate_password():
     password_entry.insert(0, password)
     window.clipboard_clear()
     window.clipboard_append(password)
-
-
-# ---------------------------- SAVE PASSWORD ------------------------------- #
 
 
 def save():
@@ -73,25 +69,44 @@ def save():
                 site_entry.focus()
 
 
+def search():
+    user_input = site_entry.get().title()
+    try:
+        with open("data.json", mode="r") as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        messagebox.showerror(title="Oops!", message="No Data file found.")
+    else:
+        if user_input in data:
+            email = data[user_input]["email"]
+            password = data[user_input]["password"]
+            messagebox.showinfo(
+                title=user_input,
+                message=f"Email: {email}\nPassword: {password}"
+            )
+            window.clipboard_clear()
+            window.clipboard_append(password)
+
+        else:
+            messagebox.showerror(
+                title="No matches", message=f"There were no matches to the entry: '{user_input}'")
+
+
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
 window.title("Password Manager")
 window.config(padx=50, pady=50)
 
-# canvas setup
 canvas = Canvas(
     width=200,
     height=200,
     highlightthickness=0
-
-
 )
 
 my_pass_img = PhotoImage(file="logo.png")
 canvas.create_image(100, 100, image=my_pass_img)
 canvas.grid(column=1, row=0)
 
-# button setup
 gen_password_button = Button(
     text="Generate Password",
     justify="left",
@@ -118,18 +133,29 @@ add_button.grid(
     sticky="EW"
 )
 
-# entry setup
+search_button = Button(
+    text="Search",
+    width=21,
+    justify="left",
+    font=(FONT_NAME, FONT_SIZE),
+    command=search
+)
+search_button.grid(
+    column=2,
+    row=1,
+    sticky="EW"
+)
+
 site_entry = Entry(width=21, justify="left")
 site_entry.grid(
     column=1,
     row=1,
-    columnspan=2,
     sticky="EW"
 )
 site_entry.focus()
 
 username_entry = Entry(width=35, justify="left")
-username_entry.insert(END, string="dummy.email@email.com")
+username_entry.insert(END, string="dummyemail@email.com")
 username_entry.grid(
     column=1,
     row=2,
@@ -151,7 +177,6 @@ website_label = Label(
 )
 website_label.grid(column=0, row=1)
 
-# label setup
 username_label = Label(
     text="Email/Username:",
     justify="right",
