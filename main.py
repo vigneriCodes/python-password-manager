@@ -55,16 +55,16 @@ def save():
 
         if is_ok:
             try:
-                with open("day_29_password_manager/data.json", mode="r") as file:
+                with open("data.json", mode="r") as file:
                     data = json.load(file)
 
             except FileNotFoundError:
-                with open("day_29_password_manager/data.json", mode="w") as file:
+                with open("data.json", mode="w") as file:
                     json.dump(new_data, file, indent=2)
 
             else:
                 data.update(new_data)
-                with open("day_29_password_manager/data.json", mode="w") as file:
+                with open("data.json", mode="w") as file:
                     json.dump(new_data, file, indent=2)
 
             finally:
@@ -87,7 +87,7 @@ canvas = Canvas(
 
 )
 
-my_pass_img = PhotoImage(file="day_29_password_manager/logo.png")
+my_pass_img = PhotoImage(file="logo.png")
 canvas.create_image(100, 100, image=my_pass_img)
 canvas.grid(column=1, row=0)
 
@@ -129,7 +129,7 @@ site_entry.grid(
 site_entry.focus()
 
 username_entry = Entry(width=35, justify="left")
-username_entry.insert(END, string="bobloblaw.vigneri@gmail.com")
+username_entry.insert(END, string="dummy.email@email.com")
 username_entry.grid(
     column=1,
     row=2,
