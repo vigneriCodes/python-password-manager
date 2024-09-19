@@ -116,6 +116,7 @@ gen_password_button = Button(
 gen_password_button.grid(
     column=2,
     row=3,
+    padx=5,
     sticky="EW"
 )
 
@@ -135,7 +136,6 @@ add_button.grid(
 
 search_button = Button(
     text="Search",
-    width=21,
     justify="left",
     font=(FONT_NAME, FONT_SIZE),
     command=search
@@ -143,6 +143,7 @@ search_button = Button(
 search_button.grid(
     column=2,
     row=1,
+    padx=5,
     sticky="EW"
 )
 
