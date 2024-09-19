@@ -12,7 +12,8 @@
 
 - _Python_
   - _Tkinter_
-  * _secrets 😉_
+  - _secrets 😉_
+  - _random_
 - _JSON_
 
 ## Description
@@ -27,13 +28,24 @@ _This program allows the user to create and save fairly secure passwords and sav
 
    - for example; "python main.py" to run the script "main.py" in the current directory.
 
-4. Enter the name of the website in the "Website:" entry field.
-5. Adjust the email/username you would like to associate with the new password in the "Email/Username:" entry field. (_Optionally; change the email in line '132' of 'main.py' to be your chosen email for this to populate automatically with your preferred email._)
-6. Press the 'Generate Password' button.
-7. Press the 'Add'
-8. A messagebox will appear asking if you are satisfied with the information entered/password generated. Click 'OK' if you are 'Cancel' if not satisfied.
-9. A file called "data.json" will be generated on your machine with the information saved in the JSON format. _**Conversely if that file already exists; the file will be updated with the new information.**_
-10. Repeat steps 4-9 to add more websites and passwords.
+## Basic Usage
+
+1. Enter the name of the website in the "Website:" entry field.
+2. Adjust the email/username you would like to associate with the new password in the "Email/Username:" entry field. (_Optionally; change the email in line '132' of 'main.py' to be your chosen email for this to populate automatically with your preferred email._)
+3. Press the 'Generate Password' button.
+4. Press the 'Add'.
+5. A messagebox will appear asking if you are satisfied with the information entered/password generated. Click 'OK' if you are 'Cancel' if not satisfied.
+6. A file called "data.json" will be generated on your machine with the information saved in the JSON format. _**Conversely if that file already exists; the file will be updated with the new information.**_
+7. Your new password will be saved to the clipboard and be availabale to paste if wanted ('ctrl-v').
+8. Repeat steps 1-6 to add more websites and passwords.
+
+## Search Functionality
+
+_You may also use the GUI to search for saved passwords:_
+
+1. Enter the name of the website you wish to search for in the "Website:" entry field.
+2. Press the 'Search' button.
+3. If found; a messagebox will appear with the relevant information displayed as well as the password saved to the clipboard for easy pasting ('ctrl-v').
 
 ---
 
