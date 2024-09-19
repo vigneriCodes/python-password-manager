@@ -71,11 +71,14 @@ def save():
 
 def search():
     user_input = site_entry.get().title()
+
     try:
         with open("data.json", mode="r") as file:
             data = json.load(file)
+
     except FileNotFoundError:
         messagebox.showerror(title="Oops!", message="No Data file found.")
+
     else:
         if user_input in data:
             email = data[user_input]["email"]
